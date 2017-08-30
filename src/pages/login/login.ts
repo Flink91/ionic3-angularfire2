@@ -31,7 +31,7 @@ export class LoginPage {
       }).present();
 
       this.data.getProfile(<User>event.result).subscribe(profile => {
-        profile ? this.navCtrl.setRoot('TabsPage') : this.navCtrl.setRoot('TabsPage');
+        profile.val() ? this.navCtrl.setRoot('TabsPage') : this.navCtrl.setRoot('TabsPage');
       })
 
     }else{
