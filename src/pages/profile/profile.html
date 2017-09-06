@@ -8,13 +8,20 @@
 
     <ion-navbar>
         <ion-title>Profile</ion-title>
+        <ion-buttons end>
+            <button ion-button color="primary" (click)="navigateToPage('EditProfilePage')">Edit</button>
+        </ion-buttons>
     </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
-    <button ion-button (click)="navigateToPage('EditProfilePage')">Edit</button>
+    <profile-view (existingProfile)="getExistingProfile($event)"></profile-view>
+
+    <div class="signout-container">
+        <button class="signout-button" ion-button block (click)="signOut()">Logout</button>
+    </div>
 
 </ion-content>

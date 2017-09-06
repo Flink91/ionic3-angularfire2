@@ -1,5 +1,7 @@
+import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Profile} from '../../models/profile/profile';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,15 +17,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  existingProfile = {} as Profile;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+
+  }
+
+  getExistingProfile(profile: Profile){
+    this.existingProfile = profile;
   }
 
   navigateToPage(page){
-    this.navCtrl.push(page);
+    if(page == 'EditProfilePage'){
+      this.navCtrl.push('EditProfilePage', {existingProfile: this.existingProfile});
+    }else{
+      this.navCtrl.push(page);
+    }
+
+  }
+
+  signOut(){
+    this.auth.signOut();
+    this.navCtrl.setRoot('LoginPage');
   }
 
 }

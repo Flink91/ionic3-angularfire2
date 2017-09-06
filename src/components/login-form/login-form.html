@@ -1,20 +1,32 @@
-<ion-card>
-    <ion-card-content>
+<form #loginForm="ngForm" novalidate>
 
-        <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input [(ngModel)]="account.email" type="email"></ion-input>
-        </ion-item>
+    <ion-card>
+        <ion-card-content>
 
-        <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input [(ngModel)]="account.password" type="password"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input [(ngModel)]="account.email" type="email" name="email" #email="ngModel" required pattern="[a-z0-9!#$%&'*+/=?^_`{\}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{\}~-]+)*@(?:[a-z0-9](?:[a-z0-9]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"></ion-input>
+            </ion-item>
 
-    </ion-card-content>
+            <div padding *ngIf="email.invalid && email.dirty">
+                <span>Email Address is not valid.</span>
+            </div>
 
-    <ion-row>
-        <button ion-button color="dark" (click)="navigateToPage('RegisterPage')">Register</button>
-        <button ion-button (click)="login()">Login</button>
-    </ion-row>
-</ion-card>
+            <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input [(ngModel)]="account.password" type="password" name="password" #password="ngModel" required pattern="[a-zA-Z0-9!@#$%^&*]{8,20}$"></ion-input>
+            </ion-item>
+
+            <div padding *ngIf="password.invalid && password.dirty">
+                <span>Password must be 8-20 characters.</span>
+            </div>
+
+        </ion-card-content>
+
+        <ion-row>
+            <button ion-button class="register-button" color="secondary" (click)="navigateToPage('RegisterPage')">Register</button>
+            <button ion-button class="login-button" (click)="login()" [disabled]="loginForm.invalid">Login</button>
+        </ion-row>
+    </ion-card>
+
+</form>

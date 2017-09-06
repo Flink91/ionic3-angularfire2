@@ -7,13 +7,19 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>Login</ion-title>
+        <ion-title><span class="journal">Pico</span>Journal Login</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+    <div class="login-header-container">
+        <div class="login-header-image">
+            <img src="assets/img/scriptmtbold.png">
+        </div>
+    </div>
 
     <login-form (loginStatus)="login($event)"></login-form>
 
