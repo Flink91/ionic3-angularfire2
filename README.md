@@ -1,5 +1,7 @@
 Unfinished and not interesting. Don't use this yet.
 
+Reminder: src/app/firebase.config.ts not uploaded. Contains secure keys.
+
 This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
 ## How to use this template
