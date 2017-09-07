@@ -36,6 +36,7 @@ export class ProfileViewComponent implements OnInit{
   ngOnInit(): void {
     this.loader.present();
 
+    //this uses mergemap from rxjs, look at dataprovider for further info
     this.data.getAuthenticatedUserProfile().subscribe( profile => {
       this.userProfile = profile;
       this.existingProfile.emit(this.userProfile);

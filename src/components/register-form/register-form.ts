@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-import { Account} from '../../models/account/account';
+import { Account } from '../../models/account/account';
 
 import { AuthProvider } from '../../providers/auth/auth';
 
@@ -28,6 +28,8 @@ export class RegisterFormComponent {
         const result = await this.auth.createUserWithEmailAndPassword(this.account);
         this.registerStatus.emit(result);
 
+
+        console.log("register result: ");
         console.log(result);
 
         }catch(e){

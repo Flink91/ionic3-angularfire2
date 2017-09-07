@@ -39,6 +39,7 @@ export class LoginPage {
       this.toast.create({
         message: event.error.message,
         duration: 3500,
+        position: 'top'
       }).present();
 
     }

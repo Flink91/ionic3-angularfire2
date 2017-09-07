@@ -21,6 +21,7 @@
     <profile-view (existingProfile)="getExistingProfile($event)"></profile-view>
 
     <div class="signout-container">
+        <button class="signout-button" color="ternary" ion-button block (click)="sendVerificationMail()">Send Verification mail</button>
         <button class="signout-button" ion-button block (click)="signOut()">Logout</button>
     </div>
 
