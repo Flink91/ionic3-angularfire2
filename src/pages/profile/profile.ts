@@ -1,7 +1,7 @@
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { Profile} from '../../models/profile/profile';
+import { Profile } from '../../models/profile/profile';
 
 /**
  * Generated class for the ProfilePage page.

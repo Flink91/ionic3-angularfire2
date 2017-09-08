@@ -4,17 +4,20 @@ import { LoginFormComponent } from './login-form/login-form';
 import { RegisterFormComponent } from './register-form/register-form';
 import { EditProfileFormComponent } from './edit-profile-form/edit-profile-form';
 import { ProfileViewComponent } from './profile-view/profile-view';
+import { DayComponent } from './day/day';
 
 @NgModule({
   declarations: [LoginFormComponent,
     RegisterFormComponent,
     EditProfileFormComponent,
-    ProfileViewComponent],
+    ProfileViewComponent,
+    DayComponent],
   imports: [IonicModule],
   exports: [LoginFormComponent,
     RegisterFormComponent,
     EditProfileFormComponent,
-    ProfileViewComponent]
+    ProfileViewComponent,
+    DayComponent]
 })
 
 export class ComponentsModule {

@@ -1,0 +1,18 @@
+<ion-card>
+    <ion-card-header>
+        <p>{{day.date.toLocaleString()}}</p>
+    </ion-card-header>
+
+    <ion-card-content>
+        <ion-item>
+            <img [src]="day.img">
+        </ion-item>
+        <ion-item>
+            <p>Rating: {{day.rating}}</p>
+        </ion-item>
+        <ion-item>
+            <p>{{day.desc}}</p>
+        </ion-item>
+
+    </ion-card-content>
+</ion-card>

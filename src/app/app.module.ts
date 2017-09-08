@@ -1,3 +1,4 @@
+import { DayProvider } from './../providers/days/day';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -43,7 +44,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    DataProvider
+    DataProvider,
+    DayProvider,
   ]
 })
 export class AppModule {}
