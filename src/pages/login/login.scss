@@ -1,5 +1,5 @@
 page-login {
-    .journal {
+    .pico {
         color: map-get($colors, primary);
     }
     button {
@@ -7,10 +7,10 @@ page-login {
     }
     .login-header-container {
         background: url("../assets/img/pen-bg.jpg");
-        background-size: 100%;
+        background-size: cover;
         position: relative;
         width: 100%;
-        height: 180px;
+        background-position-x: center;
     }
     .login-header-image {
         height: 160px;
@@ -29,6 +29,15 @@ page-login {
             left: 0;
             right: 0;
             margin: auto;
+        }
+    }
+    .login-header-text {
+        text-align: center;
+        padding: 20px;
+        color: #333;
+        font-size: medium;
+        h1 {
+            font-weight: bold;
         }
     }
 }

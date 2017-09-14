@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title><span class="journal">Pico</span>Journal Login</ion-title>
+        <ion-title><span class="pico">Pico</span>Journal Login</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -15,11 +15,21 @@
 
 <ion-content>
 
+
     <div class="login-header-container">
+
         <div class="login-header-image">
             <img src="assets/img/scriptmtbold.png">
         </div>
+
+        <div class="login-header-text">
+            <h1>Remember your life</h1>
+            <p>Do you feel like the days are just running by and even just the last week has become a big blurry chunk of time? Start your journal today, retain your memories and create a better version of yourself with PicoJournal.</p>
+        </div>
     </div>
+
+
+
 
     <login-form (loginStatus)="login($event)"></login-form>
 

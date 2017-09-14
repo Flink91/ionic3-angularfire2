@@ -1,10 +1,72 @@
+<!-- <ion-card>
+    <ion-card-header>
+        <p>{{day.date.toLocaleString()}}</p>
+    </ion-card-header>
+
+    <ion-card-content>
+        <ion-item>
+            <img [src]="image">
+        </ion-item>
+        <ion-item>
+            <p>Rating: {{day.rating}}</p>
+        </ion-item>
+        <ion-item>
+            <p>{{day.desc}}</p>
+        </ion-item>
+
+    </ion-card-content>
+</ion-card> -->
+
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Days
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="addRecord()">
+   <ion-icon name="add"></ion-icon>
+    </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-card class="day" text-wrap *ngFor="let day of days | async">
+            <ion-item>
+                <div *ngIf="day.img">
+                    <img [src]="day.img">
+                </div>
+                <h2>Rating: {{ day.rating }}</h2>
+                <small>{{ day.date }}</small>
+                <p>{{ day.desc }}</p>
+
+            </ion-item>
+
+
+            <div class="manage-record" padding>
+                <button ion-button text-center color="primary" (click)="editDay(day)">Edit</button>
+
+                <button ion-button text-center color="danger" (click)="deleteDay(day)">Delete</button>
+            </div>
+
+        </ion-card>
+    </ion-list>
+
+
+</ion-content>
+
+
+
 <!--
   Generated template for the DaysPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
 
     <ion-navbar>
         <ion-title>Days</ion-title>
@@ -20,4 +82,4 @@
 
     <day *ngFor="let day of daysList | async" [day]="day"></day>
 
-</ion-content>
+</ion-content> -->

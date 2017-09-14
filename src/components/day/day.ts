@@ -1,3 +1,4 @@
+import { DayProvider } from './../../providers/days/day';
 import { Component, Input } from '@angular/core';
 import { Day } from '../../models/days/day';
 
@@ -15,11 +16,17 @@ import { Day } from '../../models/days/day';
 export class DayComponent {
 
   @Input() day : Day;
+  image : any;
 
 
-  constructor() {
+  constructor(private dayProvider: DayProvider) {
     console.log('Hello DayComponent Component');
     console.log('dayInfo: ' + this.day);
+  }
+
+  async ionViewDidLoad(){
+    this.image = await this.dayProvider.getImage("day-" + this.day.date.toLocaleDateString());
+    console.log("Do something...");   console.log(this.image);
   }
 
 }

@@ -1,0 +1,32 @@
+<ion-card>
+
+    <ion-card-content>
+
+        <ion-item>
+            <ion-label floating>Image as text for now</ion-label>
+            <ion-input type="text" [(ngModel)]="day.img"></ion-input>
+        </ion-item>
+
+        <!-- <button ion-button (click)="capture()">Take Picture</button>
+        <img width="100%" [src]="base64Image" *ngIf="base64Image" /> -->
+
+        <ion-item>
+            <ion-label floating>Description</ion-label>
+            <ion-input type="text" [(ngModel)]="day.desc"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Rating</ion-label>
+            <ion-input type="number" [(ngModel)]="day.rating"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Date</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="day.date"></ion-datetime>
+        </ion-item>
+
+    </ion-card-content>
+
+    <button ion-button (click)="newDay()" [disabled]="!day">Save</button>
+
+</ion-card>

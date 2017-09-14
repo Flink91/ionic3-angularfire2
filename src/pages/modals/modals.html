@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Title
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="closeModal()">
+        <span
+           ion-text
+           color="primary"
+           >Cancel</span>
+      </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <form [formGroup]="form" (ngSubmit)="saveDay(form.value)">
+
+        <ion-item-divider color="light">
+            <div *ngIf="!isEditable">
+                Add a new day
+            </div>
+
+            <div *ngIf="isEditable">
+                Amend this day
+            </div>
+        </ion-item-divider>
+
+        <ion-item>
+            <ion-label>Rating: </ion-label>
+            <ion-range min="1" max="10" step="1" snaps="true" color="secondary" [(ngModel)]="dayRating" name="rating" formControlName="rating"></ion-range>
+        </ion-item>
+
+        <ion-item>
+            <span ion-text color="danger" block text-center padding-top padding-bottom (click)="selectImage()">Select an image</span>
+            <input type="hidden" name="img" formControlName="img" [(ngModel)]="dayImg">
+            <img [src]="dayImg">
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label stacked>Description:</ion-label>
+            <ion-textarea rows="3" formControlName="desc" [(ngModel)]="dayDesc"></ion-textarea>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label floating>Date</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" formControlName="date" [(ngModel)]="dayDate"></ion-datetime>
+        </ion-item>
+
+
+        <ion-item>
+            <input type="hidden" name="dayId">
+            <button ion-button block color="primary" text-center padding-top padding-bottom [disabled]="!form.valid">
+         <div *ngIf="!isEditable">
+            Add a new day
+         </div>
+
+         <div *ngIf="isEditable">
+            Update this day
+         </div>
+         </button>
+        </ion-item>
+
+    </form>
+</ion-content>

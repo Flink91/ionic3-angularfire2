@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>NewDay</ion-title>
+        <ion-title>New Day</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -15,32 +15,6 @@
 
 <ion-content padding>
 
-    <ion-card>
-        <ion-card-content>
-
-            <ion-item>
-                <ion-label floating>Image as text for now</ion-label>
-                <ion-input type="text" [(ngModel)]="day.img"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label floating>Description</ion-label>
-                <ion-input type="text" [(ngModel)]="day.desc"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label floating>Rating</ion-label>
-                <ion-input type="number" [(ngModel)]="day.rating"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label floating>Date</ion-label>
-                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="day.date"></ion-datetime>
-            </ion-item>
-
-        </ion-card-content>
-    </ion-card>
-
-    <button ion-button (click)="newDay()">Save</button>
+    <new-day-form (newDayUploadStatus)="newDayUploadStatus($event)"></new-day-form>
 
 </ion-content>

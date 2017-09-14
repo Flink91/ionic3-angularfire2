@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { NewDayPage } from './new-day';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { NewDayPage } from './new-day';
   ],
   imports: [
     IonicPageModule.forChild(NewDayPage),
+    ComponentsModule
   ],
 })
 export class NewDayPageModule {}
