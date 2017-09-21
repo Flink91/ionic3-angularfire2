@@ -10,19 +10,21 @@ import { AuthProvider } from './../auth/auth';
 @Injectable()
 export class DatabaseProvider {
 
-   constructor(public http: Http, private afAuth: AngularFireAuth)
-   {
-   }
+  constructor(public http: Http, private afAuth: AngularFireAuth)
+  {
+  }
 
 
-
-   renderDays() : Observable<any>
-   {
+/**
+ * Return all days ordered by their key at the moment as Observable
+ */
+  renderDays() : Observable<any>
+  {
 
       return new Observable(observer =>
       {
          let days : any = [];
-         firebase.database().ref(`/days/${this.afAuth.auth.currentUser.uid}`).orderByKey().once('value', (items : any) =>
+         firebase.database().ref(`/days/${this.afAuth.auth.currentUser.uid}`).orderByChild("date").once('value', (items : any) =>
          {
             items.forEach((item) =>
             {
@@ -47,12 +49,15 @@ export class DatabaseProvider {
          });
 
       });
-   }
+  }
 
 
-
-   deleteDay($key) : Promise<any>
-   {
+  /**
+  * Removes day from database
+  * @param $key The unique key of the day
+  */
+  deleteDay($key) : Promise<any>
+  {
      console.log("id to delete: " + $key);
       return new Promise((resolve) =>
       {
@@ -60,36 +65,47 @@ export class DatabaseProvider {
          ref.remove();
          resolve(true);
       });
-   }
+  }
 
 
-
-   addToDatabase(dayObj) : Promise<any>
-   {
+  /**
+   * Add a day to the database
+   * @param dayObj consists of date, desc, rating and img (URL)
+   */
+  addToDatabase(dayObj) : Promise<any>
+  {
       return new Promise((resolve) =>
       {
          let addRef = firebase.database().ref(`/days/${this.afAuth.auth.currentUser.uid}`);
          addRef.push(dayObj);
          resolve(true);
       });
-   }
+  }
 
 
-
-   updateDatabase(id, daysObj) : Promise<any>
-   {
+/**
+ * Update an existing day entry
+ * @param id the is of the day
+ * @param dayObj consists of date, desc, rating and img (URL)
+ */
+  updateDatabase(id, dayObj) : Promise<any>
+  {
       return new Promise((resolve) =>
       {
          var updateRef = firebase.database().ref(`/days/${this.afAuth.auth.currentUser.uid}`).child(id);
-	      updateRef.update(daysObj);
+	      updateRef.update(dayObj);
          resolve(true);
       });
-   }
+  }
 
 
-
-   uploadImage(imageString, date:Date) : Promise<any>
-   {
+/**
+ * Uploads an image to the Firebase storage, which is seperate from the database
+ * @param imageString Base64 Image string
+ * @param date the date of the day works as the unique identifier
+ */
+  uploadImage(imageString, date:Date) : Promise<any>
+  {
       let image       : string  = 'day-' + date + '.jpg',
           storageRef  : any,
           parseUpload : any;
@@ -113,7 +129,7 @@ export class DatabaseProvider {
             resolve(parseUpload.snapshot);
          });
       });
-   }
+  }
 
 
 }

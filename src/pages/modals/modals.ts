@@ -51,7 +51,7 @@ export class ModalsPage {
 
           this.dayRating   	= day.rating;
           this.dayDate    	= day.date;
-          this.dayImg       = day.image;
+          this.dayImg       = day.img;
           this.dayDesc      = day.desc;
           this.dayId        = day.$key;
           this.isEditable      = true;
@@ -83,7 +83,7 @@ export class ModalsPage {
                this._DB.updateDatabase(this.dayId,
                {
 	              rating   : rating,
-                image    : uploadedImage,
+                img    : uploadedImage,
                 desc     : desc,
                 date     : date
 	           })
@@ -119,7 +119,7 @@ export class ModalsPage {
 
             this._DB.addToDatabase({
               rating   : rating,
-              image    : uploadedImage,
+              img    : uploadedImage,
               desc     : desc,
               date     : date
 	        })
@@ -137,6 +137,7 @@ export class ModalsPage {
 
    closeModal(val = null)
    {
+     //TODO: sometimes tries to dismiss twice?
       this.viewCtrl.dismiss(val);
    }
 

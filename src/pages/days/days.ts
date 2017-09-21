@@ -87,7 +87,7 @@ export class DaysPage {
      modal.present();
   }
 
-
+  //TODO: Image missing in params
   editDay(day)
   {
      let params = { day: day, isEdited: true },
