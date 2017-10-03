@@ -20,7 +20,9 @@ export class PreloaderProvider {
    }
 
 
-
+   /**
+    * Displays a page containing preloader
+    */
    displayPreloader() : void
    {
       this.loading = this.loadingCtrl.create({
@@ -31,7 +33,9 @@ export class PreloaderProvider {
    }
 
 
-
+   /**
+    * Hides the preloader again
+    */
    hidePreloader() : void
    {
       this.loading.dismiss();

@@ -16,7 +16,7 @@ export class DatabaseProvider {
 
 
 /**
- * Return all days ordered by their key at the moment as Observable
+ * Return all days ordered by their child element 'date' as Observable
  */
   renderDays() : Observable<any>
   {
@@ -53,7 +53,7 @@ export class DatabaseProvider {
 
 
   /**
-  * Removes day from database
+  * Removes a day from database
   * @param $key The unique key of the day
   */
   deleteDay($key) : Promise<any>
@@ -100,7 +100,7 @@ export class DatabaseProvider {
 
 
 /**
- * Uploads an image to the Firebase storage, which is seperate from the database
+ * Uploads a day-image to the Firebase storage, which is seperate from the database
  * @param imageString Base64 Image string
  * @param date the date of the day works as the unique identifier
  */

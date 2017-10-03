@@ -26,9 +26,6 @@ import { HttpModule} from '@angular/http';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 
 
-
-
-
 @NgModule({
   declarations: [
     MyApp

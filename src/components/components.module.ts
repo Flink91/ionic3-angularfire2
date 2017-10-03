@@ -8,15 +8,19 @@ import { DayComponent } from './day/day';
 import { NewDayFormComponent } from './new-day-form/new-day-form';
 
 @NgModule({
-  declarations: [LoginFormComponent,
+  declarations: [
+    LoginFormComponent,
     RegisterFormComponent,
     EditProfileFormComponent,
     ProfileViewComponent,
     DayComponent,
     NewDayFormComponent
   ],
-  imports: [IonicModule],
-  exports: [LoginFormComponent,
+  imports: [
+    IonicModule
+  ],
+  exports: [
+    LoginFormComponent,
     RegisterFormComponent,
     EditProfileFormComponent,
     ProfileViewComponent,

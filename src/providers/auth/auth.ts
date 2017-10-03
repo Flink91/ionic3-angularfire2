@@ -17,7 +17,10 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
-
+  /**
+   * Returns true if the account is verified by email
+   * @param account
+   */
   getVerfiedStatus(account){
     this.afAuth.auth.onAuthStateChanged(function(account){
       if (account.emailVerified) {
@@ -33,6 +36,9 @@ export class AuthProvider {
     return false;
   }
 
+  /**
+  * Sends the Email to verify a users email adress
+  */
   sendVerifyMail(){
 
     console.log("Sending Verify Mail...");
@@ -49,12 +55,17 @@ export class AuthProvider {
 
   }
 
-
+  /**
+   * Returns the state of the authenticated user
+   */
   getAuthenticatedUser(){
     return this.afAuth.authState;
   }
 
-
+  /**
+   * Creates a new User
+   * @param account consists of email and password
+   */
   async createUserWithEmailAndPassword(account){
 
     try{
@@ -73,7 +84,10 @@ export class AuthProvider {
     }
   }
 
-
+  /**
+   * Tries to sign in an account with user an password
+   * @param account consists of email and password
+   */
   async signInWithEmailAndPassword(account: Account){
 
     try{
@@ -90,7 +104,9 @@ export class AuthProvider {
     }
   }
 
-
+  /**
+   * Signs the user out
+   */
   signOut(){
     this.afAuth.auth.signOut();
   }

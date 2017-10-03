@@ -22,6 +22,10 @@ export class DayProvider {
 
   }
 
+  /**
+   * Adds a day to the database. Returns a NewDayUploadResponse asynchronously.
+   * @param day to add
+   */
   async addDay(day : Day){
 
     try{
