@@ -52,6 +52,8 @@ export class DatabaseProvider {
   }
 
 
+
+
   /**
   * Removes a day from database
   * @param $key The unique key of the day

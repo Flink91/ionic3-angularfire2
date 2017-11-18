@@ -33,20 +33,31 @@
 
 <ion-content padding>
 
-    <ion-list>
-        <ion-card class="day" text-wrap *ngFor="let day of days | async">
+    <ion-list class="timeline">
+        <ion-card class="day" text-wrap *ngFor="let day of days | async ">
+
+            <div class="day-img-container" *ngIf="day.img">
+                <div class="day-img" [style.backgroundImage]="'url('+ day.img +')'">
+                </div>
+
+                <div class="day-date">
+                    <span class="day-date-day" style="display:block;">{{day.date | date :'dd'}}</span>
+                    <span class="day-date-month">{{day.date | date :'MMM'}}</span>
+                </div>
+
+            </div>
+
+
 
             <ion-item>
-                <h2 class="date">{{ day.date }}</h2>
+                <h2 class="date">{{ day.date | date}}</h2>
                 <rating style="float:left;" [(ngModel)]="day.rating" readOnly="true" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star" nullable="false"></rating>
 
                 <p class="desc">"{{ day.desc }}"</p>
 
             </ion-item>
 
-            <div *ngIf="day.img">
-                <img [src]="day.img">
-            </div>
+
 
 
             <div class="manage-record" padding>

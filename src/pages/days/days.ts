@@ -44,8 +44,7 @@ export class DaysPage {
       console.log('dayInfo: ' + this.day);
   }
 
-  ionViewDidEnter()
-  {
+  ionViewDidEnter(){
      this._LOADER.displayPreloader();
     //  this.platform.ready()
     //  .then(() =>
@@ -68,7 +67,12 @@ export class DaysPage {
   loadAndParseDays()
   {
      this.days = this._DB.renderDays();
+     //this.days = this.reverseDays();
      this._LOADER.hidePreloader();
+  }
+
+  reverseDays(){
+    console.log("reverseDays")
   }
 
   /**
