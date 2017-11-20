@@ -24,12 +24,12 @@ page-days {
     .timeline {}
     .timeline::before {
         left: 50%;
-        top: 75px;
+        top: 100px;
         bottom: 0;
         position: fixed;
         content: " ";
         width: 3px;
-        background-color: #c03546;
+        background-color: lighten( #c03546, 10%);
         margin-left: -1.5px;
         z-index: -1;
     }

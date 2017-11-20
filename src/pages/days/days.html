@@ -34,7 +34,7 @@
 <ion-content padding>
 
     <ion-list class="timeline">
-        <ion-card class="day" text-wrap *ngFor="let day of days | async ">
+        <ion-card class="day" text-wrap *ngFor="let day of days">
 
             <div class="day-img-container" *ngIf="day.img">
                 <div class="day-img" [style.backgroundImage]="'url('+ day.img +')'">

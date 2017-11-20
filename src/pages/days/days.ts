@@ -66,13 +66,40 @@ export class DaysPage {
    */
   loadAndParseDays()
   {
-     this.days = this._DB.renderDays();
+    let subscription = this._DB.renderDays().subscribe((data : Day[]) => {
+
+        console.log("Subscription successfully got the days from the DB.");
+
+        console.log(data);
+
+        this.days = data.reverse();
+
+        console.log(this.days);
+
+        // success
+      }, (errData) => {
+        // error
+      }, () => {
+        // complete
+    });
+
+
+     //this.days = this._DB.renderDays();
      //this.days = this.reverseDays();
      this._LOADER.hidePreloader();
   }
 
-  reverseDays(){
-    console.log("reverseDays")
+  orderByDescendingDate(data: Day[]){
+    console.log("reverseDays");
+    for(let i = 0; i < data.length -1 ; i++){
+      if (data[i].date > data[i+1].date){
+        console.log(data[i].date +" war groesser als " + data[i+1].date);
+      }else{
+        console.log(data[i].date +" war kleiner als " + data[i+1].date);
+      }
+
+    }
+    return data;
   }
 
   /**
