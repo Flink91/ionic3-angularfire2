@@ -23,14 +23,41 @@ page-days {
     }
     .timeline {}
     .timeline::before {
+        display: none;
         left: 50%;
-        top: 100px;
-        bottom: 0;
-        position: fixed;
+        top: 56px;
+        bottom: -30px;
+        position: absolute;
         content: " ";
         width: 3px;
         background-color: lighten( #c03546, 10%);
         margin-left: -1.5px;
+        z-index: -1;
+    }
+    .card {
+        margin: 0px;
+        border-radius: 2px;
+        width: 100%;
+    }
+    .timeline-header {
+        position: relative;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+    }
+    .timeline-header>h1 {
+        margin-left: 10px;
+    }
+    .timeline-header::after {
+        height: 3px;
+        bottom: 15px;
+        position: absolute;
+        text-align: center;
+        content: " ";
+        width: 40px;
+        background-color: lighten( #c03546, 10%);
+        margin-left: -20px;
         z-index: -1;
     }
     .day {
